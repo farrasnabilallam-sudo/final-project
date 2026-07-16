@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>651 Kreasi</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap">
+    
     <style>
         /* === VARIABLES & RESET === */
         :root {
@@ -96,11 +97,13 @@
             border-bottom-color: var(--primary-maroon); 
         }
 
+        /* Hamburger Menu */
         .menu-toggle { 
             display: none; 
             flex-direction: column; 
             gap: 6px; 
             cursor: pointer; 
+            z-index: 1001;
         }
 
         .menu-toggle span { 
@@ -114,12 +117,18 @@
             background-color: var(--dark-charcoal); 
         }
 
+        /* State ketika menu mobile aktif */
+        .menu-toggle.active span {
+            background-color: var(--dark-charcoal);
+        }
+
         /* === HERO SECTION === */
         .hero-section { 
             height: 100vh; 
             width: 100%; 
+            /* Perbaikan path gambar untuk GitHub */
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                        url(/foto/foto2.jpg) no-repeat center center/cover; 
+                        url(foto/foto2.jpg) no-repeat center center/cover; 
             display: flex; 
             align-items: center; 
             padding: 0 8%; 
@@ -200,6 +209,13 @@
             align-items: center; 
         }
 
+        .event-img {
+            width: 100%;
+            height: 600px; 
+            object-fit: cover; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
         .split-text h3 { 
             font-family: var(--font-serif); 
             font-size: 2.2rem; 
@@ -210,9 +226,28 @@
 
         .split-text p { 
             color: var(--muted-gray); 
-            font-size: 2.05rem; 
+            font-size: 1.1rem; /* Perbaikan: Ukuran diatur proporsional agar pas */
             line-height: 1.8; 
             margin-bottom: 2rem; 
+        }
+
+        .event-table {
+            width: 100%; 
+            margin-bottom: 2rem; 
+            font-size: 1.1rem; 
+            border-collapse: collapse;
+        }
+
+        .event-table tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .event-table td {
+            padding: 0.8rem 0;
+        }
+
+        .text-right {
+            text-align: right;
         }
 
         .bg-light-block { 
@@ -237,9 +272,15 @@
                 grid-template-columns: 1fr; 
                 gap: 3rem; 
             } 
+            .hero-section {
+                padding: 0 5%;
+            }
             .hero-content h1 { 
                 font-size: 2.8rem; 
             } 
+            .event-img {
+                height: 400px;
+            }
             section { 
                 padding: 6rem 5%; 
             } 
@@ -264,7 +305,8 @@
             } 
             
             .nav-links.active { 
-                top: 80px; 
+                top: 0;
+                padding-top: 6rem;
             } 
             
             .nav-links a { 
@@ -283,6 +325,7 @@
 </head>
 <body>
 
+    <!-- Navigasi -->
     <nav class="navbar">
         <div class="logo">651 Kreasi.</div>
         <ul class="nav-links">
@@ -294,6 +337,7 @@
         </ul>
     </nav>
 
+    <!-- Hero Header -->
     <header class="hero-section">
         <div class="hero-content">
             <span>Unit Kegiatan Mahasiswa Amikom</span>
@@ -302,6 +346,7 @@
         </div>
     </header>
 
+    <!-- Konten Utama -->
     <section class="bg-light-block">
         <div class="section-header">
             <span>Highlight Event</span>
@@ -310,21 +355,22 @@
         
         <div class="split-layout">
             <div class="split-img">
-                <img src="/foto/foto1.jpg" alt="foto1.jpg" style="width: ;height:900px; object-fit:cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <!-- Perbaikan path gambar untuk GitHub -->
+                <img src="foto/foto1.jpg" alt="Event Musik" class="event-img">
             </div>
             
             <div class="split-text">
                 <h3>Music After Exam Vol 2:</h3>
-                <p>Proker Tahunan Amikom Music Organizer (AMO) yang dilaksanakan habis Ujian Akhir Semester. Yang bertujuan untuk bersenang-senang sehabis ujian </p>
+                <p>Proker Tahunan Amikom Music Organizer (AMO) yang dilaksanakan habis Ujian Akhir Semester. Yang bertujuan untuk bersenang-senang sehabis ujian.</p>
                 
-                <table style="width:100%; margin-bottom: 2rem; font-size:1.5rem; border-collapse:collapse;">
-                    <tr style="border-bottom:1px solid #ddd;">
-                        <td style="padding:0.5rem 0;"><strong>Hari/Tanggal:</strong></td>
-                        <td style="padding:0.5rem 0; text-align:right;">Minggu, 2 Agustus 2026</td>
+                <table class="event-table">
+                    <tr>
+                        <td><strong>Hari/Tanggal:</strong></td>
+                        <td class="text-right">Minggu, 2 Agustus 2026</td>
                     </tr>
                     <tr>
-                        <td style="padding:0.5rem 0;"><strong>Lokasi:</strong></td>
-                        <td style="padding:0.5rem 0; text-align:right;">The Gardens</td>
+                        <td><strong>Lokasi:</strong></td>
+                        <td class="text-right">The Gardens</td>
                     </tr>
                 </table>
                 
@@ -333,13 +379,16 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 651 Kreasi. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>&copy; 2026 651 Kreasi. Hak Cipta Dilindungi Undang-Undang.</p>
     </footer>
 
+    <!-- JavaScript Mobile Menu & Scroll -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelector('.nav-links');
             
             // Handle scroll logic
             window.addEventListener('scroll', () => {
@@ -351,15 +400,22 @@
             });
 
             // Handle mobile menu toggle
-            const navLinks = document.querySelector('.nav-links');
             const menuToggle = document.createElement('div');
-            
             menuToggle.classList.add('menu-toggle');
             menuToggle.innerHTML = `<span></span><span></span><span></span>`;
             navbar.appendChild(menuToggle);
             
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            
+            // Tutup menu jika link diklik (untuk mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
             });
         });
     </script>
