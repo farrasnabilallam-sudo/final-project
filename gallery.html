@@ -4,204 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dokumentasi - 651 Kreasi</title>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght=0,700;1,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Custom Properties / Variables */
+        /*  VARIABLES & RESET */
         :root {
             --primary-maroon: #7A0010;
-            --dark-charcoal: #111111;
-            --pure-white: #ffffff;
-            --light-gray: #f4f4f4;
-            --muted-gray: #777777;
+            --dark: #111111;
+            --white: #ffffff;
+            --gray: #f5f5f5;
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
 
-        /* Base Reset */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        html { 
-            font-family: var(--font-sans); 
-            color: var(--dark-charcoal); 
-            background-color: var(--pure-white); 
+        body {
+            font-family: var(--font-sans);
+            background: var(--gray);
         }
 
-        /* Navigation Bar */
-        .navbar { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1.2rem 8%; 
-            background: var(--pure-white); 
-            border-bottom: 1px solid #e5e5e5; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
-            z-index: 1000; 
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            z-index: 999;
         }
 
-        .logo { 
-            font-size: 1.6rem; 
-            font-weight: 800; 
-            letter-spacing: 2px; 
-            color: var(--primary-maroon); 
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-maroon);
         }
 
-        .nav-links { 
-            display: flex; 
-            list-style: none; 
-            gap: 2.5rem; 
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
         }
 
-        .nav-links a { 
-            color: var(--dark-charcoal); 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            padding-bottom: 5px; 
-            border-bottom: 2px solid transparent; 
-            transition: 0.3s; 
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.3s;
         }
 
-        .nav-links a:hover, 
-        .nav-links a.active { 
-            color: var(--primary-maroon) !important; 
-            border-bottom-color: var(--primary-maroon); 
+        .nav-links a:hover,
+        .nav-links .active {
+            color: var(--primary-maroon);
         }
 
-        /* Mobile Menu Toggle */
-        .menu-toggle { 
-            display: none; 
-            flex-direction: column; 
-            gap: 6px; 
-            cursor: pointer; 
-            background: none;
-            border: none;
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
         }
 
-        .menu-toggle span { 
-            width: 28px; 
-            height: 2px; 
-            background-color: var(--dark-charcoal); 
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: #000;
         }
 
-        /* Content Section */
-        section { 
-            padding: 12rem 8% 8rem; 
+        /* SECTION  */
+        section {
+            padding: 130px 8% 80px;
         }
 
-        .section-header { 
-            margin-bottom: 5rem; 
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        .section-header span { 
-            font-family: var(--font-serif); 
-            font-style: italic; 
-            color: var(--primary-maroon); 
-            font-size: 1.3rem; 
-            display: block; 
-            margin-bottom: 0.5rem; 
+        .section-header span {
+            color: var(--primary-maroon);
+            font-style: italic;
+            font-size: 22px;
+            font-family: var(--font-serif);
         }
 
-        .section-header h2 { 
-            font-size: 2.8rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: -1px; 
+        .section-header h2 {
+            font-size: 48px;
+            margin-top: 10px;
         }
 
-        /* Editorial Gallery */
-        .editorial-gallery { 
-            display: grid; 
-            grid-template-columns: 2fr 1fr; 
-            gap: 1.5rem; 
+        /* GALLERY */
+        .editorial-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 30px;
         }
 
-        .gallery-block { 
-            position: relative; 
-            height: 500px; 
-            overflow: hidden; 
+        .gallery-block {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 340px;
+            background: #ddd;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: 0.4s;
+            animation: fadeUp 0.8s ease;
         }
 
-        .gallery-block img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            filter: grayscale(20%); 
-            transition: all 0.6s; 
+        .gallery-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
         }
 
-        .gallery-block:hover img { 
-            transform: scale(1.03); 
-            filter: grayscale(0); 
+        .gallery-block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
         }
 
-        .gallery-caption { 
-            position: absolute; 
-            bottom: 0; 
-            left: 0; 
-            width: 100%; 
-            padding: 2rem; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
-            color: var(--pure-white); 
+        .gallery-block:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: var(--white);
         }
 
         .gallery-caption p {
-            font-size: 0.8rem; 
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            margin-bottom: 0.3rem;
         }
 
         .gallery-caption h4 {
-            font-family: var(--font-serif); 
-            font-weight: 400;
-            font-size: 1.4rem;
+            font-size: 25px;
+            font-family: var(--font-serif);
         }
 
-        /* Footer */
-        footer { 
-            background-color: #0b0b0b; 
-            color: #666666; 
-            text-align: center; 
-            padding: 3rem; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Responsive Design */
-        @media (max-width: 968px) { 
-            section { padding: 10rem 5% 6rem; } 
-            .editorial-gallery { grid-template-columns: 1fr; } 
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 35px;
+            margin-top: 70px;
         }
 
-        @media (max-width: 768px) { 
-            .menu-toggle { display: flex; } 
-            
-            .nav-links { 
-                position: fixed; 
-                top: -100%; 
-                left: 0; 
-                width: 100%; 
-                background: var(--pure-white); 
-                flex-direction: column; 
-                padding: 3rem 0; 
-                text-align: center; 
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-                transition: 0.4s ease; 
-            } 
-            
-            .nav-links.active { 
-                top: 80px; 
-            } 
+        /*  RESPONSIVE  */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .section-header h2 {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
@@ -216,51 +219,81 @@
             <li><a href="gallery.html" class="active">Dokumentasi</a></li>
             <li><a href="contact.html">Hubungi / Rekrutmen</a></li>
         </ul>
-        <button class="menu-toggle" aria-label="Menu">
+        <div class="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
-        </button>
+        </div>
     </nav>
 
     <section>
         <div class="section-header">
-            <span>Dokumentasi</span>
-            <h2>Kilas Balik Karya Kami</h2>
+            <span>Our Journey</span>
+            <h2>Dokumentasi Event 651 Kreasi</h2>
         </div>
 
         <div class="editorial-gallery">
             <div class="gallery-block">
-                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80" alt="Konser Besar Kampus">
+                <img src="dokumentasi/dokumentasi1.jpeg" alt="Pesta Musik Kampus Merdeka">
                 <div class="gallery-caption">
-                    <p>Moshpit Area - 2025</p>
-                    <h4>Pesta Musik Kampus Merdeka</h4>
+                    <p>Festival • 2025</p>
+                    <h4>Cherypop </h4>
                 </div>
             </div>
-            
+
             <div class="gallery-block">
-                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Lighting Panggung">
+                <img src="dokumentasi/dokumentasi2.jpeg" alt="Simfoni Malam Syahdu">
                 <div class="gallery-caption">
-                    <p>Tata Panggung - 2025</p>
-                    <h4>Simfoni Malam Syahdu</h4>
+                    <p>FESTIVAL • 2025</p>
+                    <h4>CRSL </h4>
+                </div>
+            </div>
+
+            <div class="gallery-block">
+                <img src="dokumentasi/dokumentasi3.jpeg" alt="Lighting Show">
+                <div class="gallery-caption">
+                    <p>Festival • 2025</p>
+                    <h4>Lighting Show</h4>
+                </div>
+            </div>
+
+            <div class="gallery-block">
+                <img src="dokumentasi/dokumentasi 4.jpg" alt="Persiapan Talent">
+                <div class="gallery-caption">
+                    <p>Backstage • 2025</p>
+                    <h4>Persiapan Talent</h4>
+                </div>
+            </div>
+
+            <div class="gallery-block">
+                <img src="dokumentasi/dokumentasi5.jpeg" alt="Creative Class">
+                <div class="gallery-caption">
+                    <p>Workshop • 2025</p>
+                    <h4>Creative Class</h4>
+                </div>
+            </div>
+
+            <div class="gallery-block">
+                <img src="dokumentasi/dokumentasi 6.jpeg" alt="651 Kreasi Production">
+                <div class="gallery-caption">
+                    <p>FESTIVAL • 2025</p>
+                    <h4>SAEMEN FEST</h4>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kolektif Mahasiswa Seni & Budaya. Hak Cipta Dilindungi Undang-Undang.</p>
+        &copy; 2026 Kolektif Mahasiswa Seni & Budaya. Hak Cipta Dilindungi Undang-Undang.
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        });
+        const menu = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-links");
+
+        menu.onclick = function() {
+            nav.classList.toggle("active");
+        };
     </script>
 </body>
 </html>
