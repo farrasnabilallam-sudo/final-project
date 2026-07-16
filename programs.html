@@ -4,41 +4,262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>651 Kreasi</title>
+    
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap">
+    
     <style>
+        /* 1. Root & CSS Variables */
         :root {
-            --primary-maroon: #7A0010; --dark-charcoal: #111111; --pure-white: #ffffff; --light-gray: #f4f4f4; --muted-gray: #777777; --font-serif: 'Playfair Display', serif; --font-sans: 'Montserrat', sans-serif;
+            --primary-maroon: #7A0010;
+            --dark-charcoal: #111111;
+            --pure-white: #ffffff;
+            --light-gray: #f4f4f4;
+            --muted-gray: #777777;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-family: var(--font-sans); color: var(--dark-charcoal); background-color: var(--pure-white); }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 8%; background: var(--pure-white); border-bottom: 1px solid #e5e5e5; box-shadow: 0 4px 20px rgba(0,0,0,0.05); z-index: 1000; }
-        .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 2px; color: var(--primary-maroon); }
-        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
-        .nav-links a { color: var(--dark-charcoal); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary-maroon) !important; border-bottom-color: var(--primary-maroon); }
-        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
-        .menu-toggle span { width: 28px; height: 2px; background-color: var(--dark-charcoal); }
-        section { padding: 12rem 8% 8rem; }
-        .bg-light-block { background-color: var(--light-gray); }
-        .section-header { margin-bottom: 5rem; }
-        .section-header span { font-family: var(--font-serif); font-style: italic; color: var(--primary-maroon); font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
-        .section-header h2 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
-        .program-list { margin-bottom: 6rem; }
-        .program-item { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-bottom: 1px solid #e5e5e5; }
-        .program-name h4 { font-size: 1.5rem; text-transform: uppercase; font-weight: 800; }
-        .program-name p { color: var(--primary-maroon); font-family: var(--font-serif); font-style: italic; }
-        .table-wrapper { overflow-x: auto; margin-top: 2rem; }
-        .editorial-table { width: 100%; border-collapse: collapse; text-align: left; }
-        .editorial-table th { padding: 1.5rem; background-color: var(--dark-charcoal); color: var(--pure-white); font-size: 0.9rem; text-transform: uppercase; }
-        .editorial-table td { padding: 1.5rem; border-bottom: 1px solid #dddddd; font-size: 0.95rem; }
-        .editorial-table tr:nth-child(even) { background-color: rgba(0,0,0,0.02); }
-        .layout-img { width: 100%; height: 450px; object-fit: cover; }
-        footer { background-color: #0b0b0b; color: #666666; text-align: center; padding: 3rem; font-size: 0.85rem; text-transform: uppercase; }
-        @media (max-width: 968px) { section { padding: 10rem 5% 6rem; } .program-item { flex-direction: column; align-items: flex-start; gap: 1rem; } .program-item div { max-width: 100% !important; } }
-        @media (max-width: 768px) { .menu-toggle { display: flex; } .nav-links { position: fixed; top: -100%; left: 0; width: 100%; background: var(--pure-white); flex-direction: column; padding: 3rem 0; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.4s ease; } .nav-links.active { top: 80px; } }
+
+        /* 2. Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: var(--font-sans);
+            color: var(--dark-charcoal);
+            background-color: var(--pure-white);
+        }
+
+        /* 3. Navigation Bar (Sticky) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: var(--pure-white);
+            border-bottom: 1px solid #e5e5e5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--primary-maroon);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--dark-charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        /* Hover & Active Link State */
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--primary-maroon) !important;
+            border-bottom-color: var(--primary-maroon);
+        }
+
+        /* Hamburger Menu (Hidden on Desktop) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background-color: var(--dark-charcoal);
+        }
+
+        /* 4. Layout & Section Spacing */
+        section {
+            padding: 12rem 8% 8rem;
+        }
+
+        .bg-light-block {
+            background-color: var(--light-gray);
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+        }
+
+        .section-header.mt-large {
+            margin-top: 5rem;
+        }
+
+        .section-header span {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--primary-maroon);
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* 5. Program Kerja Section */
+        .program-list {
+            margin-bottom: 6rem;
+        }
+
+        .program-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .program-name h4 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .program-name p {
+            color: var(--primary-maroon);
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+
+        .program-desc {
+            max-width: 50%;
+            color: var(--muted-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 6. Sponsorship Table Section */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        .editorial-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .editorial-table th {
+            padding: 1.5rem;
+            background-color: var(--dark-charcoal);
+            color: var(--pure-white);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .editorial-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #dddddd;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .editorial-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        /* 7. Visual Layout Map Section */
+        .layout-container {
+            margin-top: 5rem;
+        }
+
+        .layout-title {
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .layout-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* 8. Footer Area */
+        footer {
+            background-color: #0b0b0b;
+            color: #666666;
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 9. Responsive Breakpoints */
+        @media (max-width: 968px) {
+            section {
+                padding: 10rem 5% 6rem;
+            }
+            .program-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .program-desc {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                background: var(--pure-white);
+                flex-direction: column;
+                padding: 3rem 0;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: 0.4s ease;
+            }
+            .nav-links.active {
+                top: 80px;
+            }
+        }
     </style>
 </head>
 <body class="subpage-body">
+
+    <!-- Header Navigation -->
     <nav class="navbar">
         <div class="logo">651 Kreasi.</div>
         <ul class="nav-links">
@@ -50,7 +271,10 @@
         </ul>
     </nav>
 
+    <!-- Main Content Section -->
     <section class="bg-light-block">
+        
+        <!-- Part 1: Program Kerja -->
         <div class="section-header">
             <span>Program Kerja</span>
             <h2>Konsep Acara & Kemitraan</h2>
@@ -62,22 +286,24 @@
                     <h4>Intimate Picnic Concert</h4>
                     <p>Skala internal universitas</p>
                 </div>
-                <div style="max-width: 50%; color: var(--muted-gray); font-size:0.95rem;">
-                    Konser akustik bulanan di taman kampus menggunakan dekorasi karpet kain dan lampu gantung estetik untuk membangun kedekatan antar mahasiswa.
+                <div class="program-desc">
+                    Konser akustikan tiap bulan yang diadain di area kampus. Konsepnya santai menggunakan karpet, kain plus dekorasi lampu gantung biar makin estetik dan bisa jadi tempat ngumpul bareng semua mahasiswa.
                 </div>
             </div>
+            
             <div class="program-item">
                 <div class="program-name">
                     <h4>"Breezy Tunes" Festival</h4>
                     <p>Skala regional / umum</p>
                 </div>
-                <div style="max-width: 50%; color: var(--muted-gray); font-size:0.95rem;">
-                    Mega-festival multi panggung terbuka dengan integrasi pasar kreatif mahasiswa, instalasi seni, dan mengundang bintang tamu berskala nasional.
+                <div class="program-desc">
+                    Festival musik yang diadakan secara besar-besaran dipanggung terbuka. Di sini kami juga menyediakan beberapa stand yang disewakan untuk berjualan, tak lupa kami juga menyediakan beberapa titik photobooth untuk yang mau berfoto, dan pastinya kita tak lupa mengundang beberapa bintang tamu.
                 </div>
             </div>
         </div>
 
-        <div class="section-header" style="margin-top: 5rem;">
+        <!-- Part 2: Sponsorship Packages -->
+        <div class="section-header mt-large">
             <span>Sponsorship</span>
             <h2>Paket Pendanaan Mitra Brand</h2>
         </div>
@@ -86,9 +312,9 @@
             <table class="editorial-table">
                 <thead>
                     <tr>
-                        <th>Kontraprestasi</th>
-                        <th>Mitra Utama (Gold)</th>
-                        <th>Mitra Pendamping (Silver)</th>
+                        <th>Platinum</th>
+                        <th>Gold</th>
+                        <th>Silver</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,25 +337,35 @@
             </table>
         </div>
 
-        <div style="margin-top: 5rem;">
-            <h3 style="text-transform: uppercase; font-size:1.4rem; margin-bottom:2rem;">Standar Tata Letak (Layout) Lapangan Festival</h3>
+        <!-- Part 3: Visual Layout Map -->
+        <div class="layout-container">
+            <h3 class="layout-title">Standar Tata Letak (Layout) Lapangan Festival</h3>
             <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80" alt="Zonasi Konser Kampus" class="layout-img">
         </div>
+
     </section>
 
+    <!-- Footer Area -->
     <footer>
         <p>&copy; 2026 Kolektif Mahasiswa Seni & Budaya. Hak Cipta Dilindungi Undang-Undang.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navbar = document.querySelector('.navbar');
             const navLinks = document.querySelector('.nav-links');
+            
+            // Inject element button hamburger ke navbar
             const menuToggle = document.createElement('div');
             menuToggle.classList.add('menu-toggle');
             menuToggle.innerHTML = `<span></span><span></span><span></span>`;
             navbar.appendChild(menuToggle);
-            menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+            
+            // Event listener klik untuk open/close menu di mobile
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
         });
     </script>
 </body>
