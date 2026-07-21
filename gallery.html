@@ -160,6 +160,55 @@
             font-family: var(--font-serif);
         }
 
+        /* VIDEO GALLERY */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .video-block {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            animation: fadeUp 0.8s ease;
+            display: flex;
+            flex-direction: column; 
+        }
+
+        .video-block video, 
+        .video-block iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Menjaga proporsi video */
+            display: block;
+            object-fit: cover;
+            border: none;
+        }
+
+        .video-caption {
+            padding: 20px;
+            background: var(--white);
+            text-align: center;
+            flex-grow: 1; /* Agar tinggi caption merata */
+        }
+
+        .video-caption h4 {
+            font-size: 20px;
+            font-family: var(--font-serif);
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .video-caption p {
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -205,6 +254,10 @@
             .section-header h2 {
                 font-size: 34px;
             }
+
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -232,6 +285,7 @@
             <h2>Dokumentasi Event 651 Kreasi</h2>
         </div>
 
+        <!-- FOTO GALLERY -->
         <div class="editorial-gallery">
             <div class="gallery-block">
                 <img src="dokumentasi/dokumentasi1.jpeg" alt="Pesta Musik Kampus Merdeka">
@@ -280,7 +334,47 @@
                     <h4>SAEMEN FEST</h4>
                 </div>
             </div>
+        </div> <!-- Penutup foto gallery -->
+
+        <!-- PEMISAH VIDEO -->
+        <div class="section-header" style="margin-top: 100px;">
+            <span>Motion & Sound</span>
+            <h2>Video Dokumentasi</h2>
         </div>
+
+        <!-- VIDEO GALLERY MENGGUNAKAN YOUTUBE -->
+        <div class="video-gallery">
+            
+            <!-- Video YouTube 1 (LINK BARU) -->
+            <div class="video-block">
+                <iframe 
+                    src="https://www.youtube.com/embed/a5kyoeZSpBQ" 
+                    title="Live Performance Band" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption">
+                    <h4>Live Performance Band</h4>
+                    <p>Dokumentasi Konser • 2025</p>
+                </div>
+            </div>
+
+            <!-- Video YouTube 2 (Link Lama yang bermasalah sebelumnya) -->
+            <div class="video-block">
+                <iframe 
+                    src="https://www.youtube.com/embed/RaNROeFTF1Y" 
+                    title="Highlight Penonton" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <div class="video-caption">
+                    <h4>Highlight Penonton</h4>
+                    <p>Suasana Festival • 2025</p>
+                </div>
+            </div>
+
+        </div> <!-- Penutup video gallery -->
+
     </section>
 
     <footer>
